@@ -1,0 +1,27 @@
+{
+  "name": "vallox-poll",
+  "version": "0.1.0",
+  "description": "Poll Vallox ventilation unit and write to VictoriaMetrics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PasiSalenius/vallox-poll.git"
+  },
+  "keywords": [
+    "vallox",
+    "victoriametrics"
+  ],
+  "author": "Pasi Salenius",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/PasiSalenius/vallox-poll/issues"
+  },
+  "homepage": "https://github.com/PasiSalenius/vallox-poll#readme",
+  "dependencies": {
+    "@danielbayerlein/vallox-api": "^1.0.1"
+  }
+}
