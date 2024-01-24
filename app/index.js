@@ -1,5 +1,6 @@
 const Vallox = require('@danielbayerlein/vallox-api')
 const http = require("http");
+const { setTimeout } = require('node:timers/promises')
 
 if (process.argv.length < 5) {
     console.log("Usage: node start <vallox unit host> <metrics host> <poll interval>")
@@ -18,8 +19,6 @@ const client = new Vallox({ ip: host, port: 80 })
 
 async function poll() {
     while (true) {
-        await new Promise(resolve => setTimeout(resolve, interval * 1000));
-
         const result = await client.fetchMetrics([
             'A_CYC_TEMP_EXTRACT_AIR',
             'A_CYC_TEMP_EXHAUST_AIR',
@@ -36,6 +35,8 @@ async function poll() {
         ])
 
         write(result)
+
+        await setTimeout(interval * 1000)
     }
 }
 
