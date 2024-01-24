@@ -26,6 +26,13 @@ async function poll() {
             'A_CYC_TEMP_OUTDOOR_AIR',
             'A_CYC_TEMP_SUPPLY_CELL_AIR',
             'A_CYC_TEMP_SUPPLY_AIR',
+            'A_CYC_FAN_SPEED',
+            'A_CYC_EXTR_FAN_SPEED',
+            'A_CYC_SUPP_FAN_SPEED',
+            'A_CYC_RH_VALUE',
+            'A_CYC_DEFROSTING',
+            'A_CYC_IO_HEATER',
+            'A_CYC_IO_EXTRA_HEATER',
         ])
 
         write(result)
@@ -53,7 +60,7 @@ function write(data) {
         }
     )
 
-    var s = `vallox,tag=vallox temp_extract_air=${data.A_CYC_TEMP_EXTRACT_AIR},temp_exhaust_air=${data.A_CYC_TEMP_EXHAUST_AIR},temp_outdoor_air=${data.A_CYC_TEMP_OUTDOOR_AIR},temp_supply_cell_air=${data.A_CYC_TEMP_SUPPLY_CELL_AIR},temp_supply_air=${data.A_CYC_TEMP_SUPPLY_AIR}`
+    var s = `vallox,tag=vallox temp_extract_air=${data.A_CYC_TEMP_EXTRACT_AIR},temp_exhaust_air=${data.A_CYC_TEMP_EXHAUST_AIR},temp_outdoor_air=${data.A_CYC_TEMP_OUTDOOR_AIR},temp_supply_cell_air=${data.A_CYC_TEMP_SUPPLY_CELL_AIR},temp_supply_air=${data.A_CYC_TEMP_SUPPLY_AIR},fan_speed=${data.A_CYC_FAN_SPEED},extr_fan_speed=${data.A_CYC_EXTR_FAN_SPEED},supp_fan_speed=${data.A_CYC_SUPP_FAN_SPEED},rh_value=${data.A_CYC_RH_VALUE},defrosting=${data.A_CYC_DEFROSTING},heater=${data.A_CYC_IO_HEATER},extra_heater=${data.A_CYC_IO_EXTRA_HEATER}`
 
     req.write(s)
     req.end()
