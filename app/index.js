@@ -3,7 +3,7 @@ const http = require("http");
 const { setTimeout } = require('node:timers/promises')
 
 if (process.argv.length < 5) {
-    console.log("Usage: node start <vallox unit host> <metrics host> <poll interval>")
+    console.log("Usage: node start <vallox unit host> <metrics host> <poll interval (s)>")
     process.exit()
 }
 
@@ -13,7 +13,7 @@ var interval = process.argv[4]
 
 console.log("Vallox ventilation unit host: " + host)
 console.log("Writing to host: " + writeHost)
-console.log("Polling interval: " + interval)
+console.log("Polling interval (s): " + interval)
 
 const client = new Vallox({ ip: host, port: 80 })
 
